@@ -9,7 +9,10 @@
 #ifndef STM32F446XX_H
 #define	STM32F446XX_H
 
-/******************************** RCC Register ********************************/
+#define PERIPHERAL_BASE					0x40000000UL
+#define AHB1PERIPHERAL_BASE				(PERIPHERAL_BASE + 0x00020000UL)
+
+/******************************** RCC Registers ********************************/
 typedef struct {
 	volatile uint32 CR;					/*RCC clock control register (RCC_CR)*/
 	volatile uint32 PLLCFGR;			/*RCC PLL configuration register (RCC_PLLCFGR)*/
@@ -47,11 +50,31 @@ typedef struct {
 	volatile uint32 DCKCFGR2;			/*RCC dedicated clocks configuration register 2 (DCKCFGR2)*/
 }RCC_TypeDef;
 
-#define PERIPHERAL_BASE			0x40000000UL
-#define AHB1PERIPHERAL_BASE		(PERIPHERAL_BASE + 0x00020000UL)
-#define RCC_BASE				(AHB1PERIPHERAL_BASE + 0x00003800UL)
-#define RCC						((RCC_TypeDef *)RCC_BASE)
+#define RCC_BASE						(AHB1PERIPHERAL_BASE + 0x00003800UL)
+#define RCC								((RCC_TypeDef *)RCC_BASE)
 
+/******************************** GPIOA/B/C Registers ********************************/
+typedef struct{
+	volatile uint32 MODER;				/*GPIO port mode register (GPIOx_MODER) (x = A..C)*/
+	volatile uint32 OTYPER;				/*GPIO port output type register (GPIOx_OTYPER) (x = A..C)*/				
+	volatile uint32 OSPEEDR;			/*GPIO port output speed register (GPIOx_OSPEEDR) (x = A..C)*/
+	volatile uint32 PUPDR;				/*GPIO port pull-up/pull-down register (GPIOx_PUPDR) (x = A..C)*/
+	volatile uint32 IDR;				/*GPIO port input data register (GPIOx_IDR) (x = A..C)*/
+	volatile uint32 ODR;				/*GPIO port output data register (GPIOx_ODR) (x = A..C)*/
+	volatile uint32 BSRR;				/*GPIO port bit set/reset register (GPIOx_BSRR) (x = A..C)*/
+	volatile uint32 LCKR;				/*GPIO port configuration lock register (GPIOx_LCKR) (x = A..C)*/
+	volatile uint32 AFRL;				/*GPIO alternate function low register (GPIOx_AFRL) (x = A..C)*/
+	volatile uint32 AFRH;				/*GPIO alternate function high register (GPIOx_AFRH) (x = A..C)*/
+}GPIO_TypeDef;
+
+#define GPIOA_BASE						(AHB1PERIPHERAL_BASE + 0x00000000UL)
+#define GPIOA							((GPIO_TypeDef *)GPIOA_BASE)
+
+#define GPIOB_BASE						(AHB1PERIPHERAL_BASE + 0x00000400UL)
+#define GPIOB							((GPIO_TypeDef *)GPIOB_BASE)
+	
+#define GPIOC_BASE						(AHB1PERIPHERAL_BASE + 0x00000800UL)
+#define GPIOC							((GPIO_TypeDef *)GPIOC_BASE)
 
 #endif	/* STM32F446XX_H */
 

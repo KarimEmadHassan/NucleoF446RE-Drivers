@@ -81,9 +81,14 @@
 
 /*System Clock*/
 #define HSI_SYS_CLK				   0
-#define HSE_SYS_CLK				   1
-#define PLL_SYS_CLK				   2
-#define PLLR_SYS_CLK			   3
+#define HSE_BYPASS_SYS_CLK		   1
+#define HSE_RC_SYS_CLK		   	   2
+#define PLL_SYS_CLK				   3
+#define PLLR_SYS_CLK			   4
+
+/*PLL clock source*/
+#define PLL_HSI_CLK				   0
+#define PLL_HSE_CLK				   1
 
 /*AHB prescaler values*/
 #define RCC_AHB_PRESCALER_DIV_1			0x00000000
@@ -112,7 +117,13 @@
 
 /*System Clock Config*/
 typedef struct {
-	uint8 System_Clock;		/*To choose the system clock from @System Clock section above*/
+	uint8 System_Clock :4;	/*To choose the system clock from @System Clock section above*/
+	uint8 PLL_Source   :1;	/*To choose the system clock from HSI or HSE*/
+	uint8 PLLR         :3;	/*To choose the Value of Multiplication factor R*/
+	uint16 PLLM        :6;	/*To choose the Value of division factor M*/
+	uint16 PLLN        :9;	/*To choose the Value of Multiplication factor N*/
+	uint8 PLLP         :4;	/*To choose the Value of Multiplication factor P*/
+	uint8 RCC_Reserved :4;  /*NOT USED*/
 	uint32 AHB_Prescaler;	/*To choose the system clock status from @AHB prescaler values section above*/
 	uint32 APB1_Prescaler;	/*To choose the system clock status from @APB1 prescaler values section above*/
 	uint32 APB2_Prescaler;	/*To choose the system clock status from @APB2 prescaler values section above*/
