@@ -46,7 +46,7 @@ int main(void)
 }
 
 
-## 2. GPIO Driver
+### 2. GPIO Driver
 
 The GPIO (General Purpose Input/Output) driver provides an interface for configuring and controlling GPIO pins on the Nucleo-F446RE board. GPIO pins can be used for various purposes such as digital input, digital output, or alternate function mode.
 
