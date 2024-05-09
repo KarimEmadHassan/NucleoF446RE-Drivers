@@ -38,8 +38,8 @@ The GPIO (General Purpose Input/Output) driver provides an interface for configu
 To use the GPIO driver in your project:
 
 1. Clone or download this repository.
-2. Include the GPIO driver source files (`gpio.c` and `gpio.h`) in your project.
-3. Include the `gpio.h` header file in your source files where GPIO functionality is required.
+2. Include the GPIO driver source files in your project.
+3. Include the header files in your source files where GPIO functionality is required.
 4. Initialize GPIO pins using the provided initialization functions.
 5. Configure pins for input or output mode as needed.
 6. Read or write pin states using the provided functions.
