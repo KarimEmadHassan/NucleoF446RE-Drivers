@@ -9,7 +9,7 @@
 #ifndef GPIO_PRIVATE_H 
 #define GPIO_PRIVATE_H
 
-
+static Std_ReturnType GPIO_Pin_Mode_Config (const GPIO_config_t *Pin_Config);
 
 #endif
  
