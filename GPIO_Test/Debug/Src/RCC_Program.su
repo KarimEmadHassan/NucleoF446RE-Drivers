@@ -1,0 +1,4 @@
+../Src/RCC_Program.c:20:16:HAL_RCC_Clk_Config	24	static
+../Src/RCC_Program.c:63:16:HAL_RCC_Enable_Clk	24	static
+../Src/RCC_Program.c:96:16:HAL_RCC_Disable_Clk	24	static
+../Src/RCC_Program.c:123:23:RCC_PLL_Config	24	static
