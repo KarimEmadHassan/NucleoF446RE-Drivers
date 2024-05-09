@@ -22,25 +22,25 @@ To use the RCC driver in your project:
 4. Initialize the RCC module using the provided initialization function.
 5. Configure the system and peripheral clocks as needed using the available functions.
 
-### Example
 
-```c
-#include <stdint.h>
-#include "Bit_Math.h"
-#include "Std_Types.h"
-#include "RCC_Interface.h"
+## 2. GPIO Driver
 
-RCC_config_t rcc = { .System_Clock = PLL_SYS_CLK, .PLL_Source = PLL_HSI_CLK , .PLLM = 4 , .PLLN = 50 , .PLLP = 4 ,
-                     .AHB_Prescaler = RCC_AHB_PRESCALER_DIV_2, .APB1_Prescaler = RCC_APB1_PRESCALER_DIV_16, .APB2_Prescaler = RCC_APB2_PRESCALER_DIV_16};
+The GPIO (General Purpose Input/Output) driver provides an interface for configuring and controlling GPIO pins on the Nucleo-F446RE board. GPIO pins can be used for various purposes such as digital input, digital output, or alternate function mode.
 
-int main(void)
-{
-    Std_ReturnType RET = E_OK;
-    RET = HAL_RCC_Clk_Config(&rcc);
-    RET = HAL_RCC_Enable_Clk(OTGHSULPI_PERIPHERAL);
-    RET = HAL_RCC_Enable_Clk(DCMI_PERIPHERAL);
-    RET = HAL_RCC_Enable_Clk(QUADSPI_PERIPHERAL);
-    RET = HAL_RCC_Enable_Clk(USART3_PERIPHERAL);
-    RET = HAL_RCC_Enable_Clk(USART6_PERIPHERAL);
-    return 0;
-}
+### Features
+
+- Pin initialization and configuration
+- Digital input and output
+- Pin toggle and state read
+
+### Usage
+
+To use the GPIO driver in your project:
+
+1. Clone or download this repository.
+2. Include the GPIO driver source files (`gpio.c` and `gpio.h`) in your project.
+3. Include the `gpio.h` header file in your source files where GPIO functionality is required.
+4. Initialize GPIO pins using the provided initialization functions.
+5. Configure pins for input or output mode as needed.
+6. Read or write pin states using the provided functions.
+
